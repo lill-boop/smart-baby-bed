@@ -1,0 +1,81 @@
+Processing esp32-s3 (platform: espressif32@6.5.0; board: esp32-s3-devkitc-1; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32-s3-devkitc-1.html
+PLATFORM: Espressif 32 (6.5.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash
+DEBUG: Current (esp-builtin) On-board (esp-builtin) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20014.231204 (2.0.14) 
+ - tool-esptoolpy @ 1.40501.0 (4.5.1) 
+ - tool-mkfatfs @ 2.0.1 
+ - tool-mklittlefs @ 1.203.210628 (2.3) 
+ - tool-mkspiffs @ 2.230.0 (2.30) 
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ deep+, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- U8g2 @ 2.36.17
+|-- Simple FOC @ 2.2.3
+|-- SPI @ 2.0.0
+|-- Wire @ 2.0.0
+|-- WiFi @ 2.0.0
+Building in release mode
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\esp32\esp32_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\stm32\stm32g4\stm32g4_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\stm32\stm32g4\stm32g4_utils.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\teensy_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\BLDCDriver3PWM.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\BLDCDriver6PWM.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\StepperDriver2PWM.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\StepperDriver4PWM.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\atmega2560_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\atmega328_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\atmega32u4_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\due_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\esp32_ledc_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\esp32_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\esp8266_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\generic_mcu.cpp.o
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp: In function 'void* _configureADCLowSide(const void*, int, int, int)':
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:86:25: error: 'ESP32MCPWMDriverParams' was not declared in this scope
+   mcpwm_unit_t unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                         ^~~~~~~~~~~~~~~~~~~~~~
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:86:25: note: suggested alternative: 'ESP32MCPWMCurrentSenseParams'
+   mcpwm_unit_t unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                         ^~~~~~~~~~~~~~~~~~~~~~
+                         ESP32MCPWMCurrentSenseParams
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:86:48: error: expected primary-expression before ')' token
+   mcpwm_unit_t unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                                                ^
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:86:49: error: expected ')' before 'driver_params'
+   mcpwm_unit_t unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                       ~                         ^~~~~~~~~~~~~
+                                                 )
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp: In function 'void _driverSyncLowSide(void*, void*)':
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:109:30: error: 'ESP32MCPWMDriverParams' was not declared in this scope
+   mcpwm_dev_t* mcpwm_dev = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_dev;
+                              ^~~~~~~~~~~~~~~~~~~~~~
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:109:30: note: suggested alternative: 'ESP32MCPWMCurrentSenseParams'
+   mcpwm_dev_t* mcpwm_dev = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_dev;
+                              ^~~~~~~~~~~~~~~~~~~~~~
+                              ESP32MCPWMCurrentSenseParams
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:109:53: error: expected primary-expression before ')' token
+   mcpwm_dev_t* mcpwm_dev = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_dev;
+                                                     ^
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:109:54: error: expected ')' before 'driver_params'
+   mcpwm_dev_t* mcpwm_dev = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_dev;
+                            ~                         ^~~~~~~~~~~~~
+                                                      )
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:110:54: error: expected primary-expression before ')' token
+   mcpwm_unit_t mcpwm_unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                                                      ^
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:110:55: error: expected ')' before 'driver_params'
+   mcpwm_unit_t mcpwm_unit = ((ESP32MCPWMDriverParams*)driver_params)->mcpwm_unit;
+                             ~                         ^~~~~~~~~~~~~
+                                                       )
+*** [.pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\esp32\esp32_mcu.cpp.o] Error 1
+========================== [FAILED] Took 8.11 seconds ==========================

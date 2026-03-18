@@ -1,0 +1,15 @@
+project_c8\timers.o: ../FreeRTOS/timers.c
+project_c8\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+project_c8\timers.o: ../FreeRTOS/include/FreeRTOS.h
+project_c8\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+project_c8\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+project_c8\timers.o: ../Core/Inc/FreeRTOSConfig.h
+project_c8\timers.o: ../FreeRTOS/include/projdefs.h
+project_c8\timers.o: ../FreeRTOS/include/portable.h
+project_c8\timers.o: ../FreeRTOS/include/deprecated_definitions.h
+project_c8\timers.o: ../FreeRTOS/portable/RVDS/ARM_CM3/portmacro.h
+project_c8\timers.o: ../FreeRTOS/include/mpu_wrappers.h
+project_c8\timers.o: ../FreeRTOS/include/task.h
+project_c8\timers.o: ../FreeRTOS/include/list.h
+project_c8\timers.o: ../FreeRTOS/include/queue.h
+project_c8\timers.o: ../FreeRTOS/include/timers.h

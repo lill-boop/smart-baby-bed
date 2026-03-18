@@ -1,0 +1,15 @@
+[Unit]
+Description=BabyCam AI Vision Analysis Service
+After=network.target babycam-push.service
+
+[Service]
+Type=simple
+User=orangepi
+WorkingDirectory=/var/log.hdd/babycam/ai
+ExecStart=/usr/bin/python3 /var/log.hdd/babycam/ai/babycam_ai.py
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

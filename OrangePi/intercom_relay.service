@@ -1,0 +1,13 @@
+[Unit]
+Description=Intercom UDP Relay Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /usr/local/bin/intercom_relay.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

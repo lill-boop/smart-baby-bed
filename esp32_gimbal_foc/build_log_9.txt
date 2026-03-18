@@ -1,0 +1,57 @@
+Processing esp32-s3 (platform: espressif32@6.5.0; board: esp32-s3-devkitc-1; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32-s3-devkitc-1.html
+PLATFORM: Espressif 32 (6.5.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash
+DEBUG: Current (esp-builtin) On-board (esp-builtin) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20014.231204 (2.0.14) 
+ - tool-esptoolpy @ 1.40501.0 (4.5.1) 
+ - tool-mkfatfs @ 2.0.1 
+ - tool-mklittlefs @ 1.203.210628 (2.3) 
+ - tool-mkspiffs @ 2.230.0 (2.30) 
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ deep+, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- U8g2 @ 2.36.17
+|-- Simple FOC @ 2.3.4
+|-- SPI @ 2.0.0
+|-- Wire @ 2.0.0
+|-- WiFi @ 2.0.0
+Building in release mode
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\esp32\esp32_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\teensy\teensy4_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\drivers\hardware_specific\teensy\teensy_mcu.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\Encoder.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\GenericSensor.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\HallSensor.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\MagneticSensorAnalog.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\MagneticSensorI2C.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\MagneticSensorPWM.cpp.o
+Compiling .pio\build\esp32-s3\libea1\Simple FOC\sensors\MagneticSensorSPI.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFi.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFiAP.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFiClient.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFiGeneric.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFiMulti.cpp.o
+Compiling .pio\build\esp32-s3\lib51d\WiFi\WiFiSTA.cpp.o
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp: In function 'void* _configureADCInline(const void*, int, int, int)':
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:20:3: error: no matching function for call to 'ESP32CurrentSenseParams::ESP32CurrentSenseParams(<brace-enclosed initializer list>)'
+   };
+   ^
+In file included from .pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.cpp:1:
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note: candidate: 'ESP32CurrentSenseParams::ESP32CurrentSenseParams()'
+ typedef struct ESP32CurrentSenseParams {
+                ^~~~~~~~~~~~~~~~~~~~~~~
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note:   candidate expects 0 arguments, 2 provided
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note: candidate: 'constexpr ESP32CurrentSenseParams::ESP32CurrentSenseParams(const ESP32CurrentSenseParams&)'
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note:   candidate expects 1 argument, 2 provided
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note: candidate: 'constexpr ESP32CurrentSenseParams::ESP32CurrentSenseParams(ESP32CurrentSenseParams&&)'
+.pio/libdeps/esp32-s3/Simple FOC/src/current_sense/hardware_specific/esp32/esp32_mcu.h:14:16: note:   candidate expects 1 argument, 2 provided
+*** [.pio\build\esp32-s3\libea1\Simple FOC\current_sense\hardware_specific\esp32\esp32_mcu.cpp.o] Error 1
+========================== [FAILED] Took 8.80 seconds ==========================

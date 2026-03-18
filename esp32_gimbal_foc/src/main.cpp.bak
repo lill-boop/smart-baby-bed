@@ -1,0 +1,84 @@
+#include <Arduino.h>
+#include <driver/i2s.h>
+
+// MAX98357A Pins (xiaozhi configuration)
+#define I2S_BCLK 5
+#define I2S_LRC 4  
+#define I2S_DOUT 6
+
+// I2S Config
+#define SAMPLE_RATE 8000
+#define DMA_BUF_COUNT 8
+#define DMA_BUF_LEN 64
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  
+  Serial.println("\n\n=== MAX98357A HARDWARE TEST ===");
+  Serial.println("⚠️  SD pin MUST be connected to 3.3V!");
+  Serial.println("Pins: BCLK=5, LRC=4, DOUT=6");
+  
+  // Configure I2S
+  i2s_config_t i2s_config = {
+    .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_TX),
+    .sample_rate = SAMPLE_RATE,
+    .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+    .communication_format = I2S_COMM_FORMAT_STAND_MSB,
+    .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+    .dma_buf_count = DMA_BUF_COUNT,
+    .dma_buf_len = DMA_BUF_LEN,
+    .use_apll = false,
+    .tx_desc_auto_clear = true
+  };
+  
+  i2s_pin_config_t pin_config = {
+    .mck_io_num = I2S_PIN_NO_CHANGE,
+    .bck_io_num = I2S_BCLK,
+    .ws_io_num = I2S_LRC,
+    .data_out_num = I2S_DOUT,
+    .data_in_num = I2S_PIN_NO_CHANGE
+  };
+  
+  // Install I2S driver
+  esp_err_t err = i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
+  if (err != ESP_OK) {
+    Serial.printf("❌ I2S driver install FAILED: %d\n", err);
+    while(1) delay(1000);
+  }
+  
+  err = i2s_set_pin(I2S_NUM_0, &pin_config);
+  if (err != ESP_OK) {
+    Serial.printf("❌ I2S set pin FAILED: %d\n", err);
+    while(1) delay(1000);
+  }
+  
+  Serial.println("✅ I2S initialized successfully");
+  Serial.println("\n🔊 Playing 440Hz test tone continuously...");
+  Serial.println("If you hear a steady tone, hardware is OK!");
+  Serial.println("If no sound, check:");
+  Serial.println("  1. SD pin connected to 3.3V");
+  Serial.println("  2. All wires properly connected");
+  Serial.println("  3. Speaker working (test with phone)");
+}
+
+void loop() {
+  // Generate 440Hz sine wave (1 second = 8000 samples)
+  const int samples = 1600; // 200ms of audio
+  int32_t buffer[samples];
+  
+  for (int i = 0; i < samples; i++) {
+    float t = (float)i / SAMPLE_RATE;
+    float sample = sin(2.0 * PI * 440.0 * t);
+    int16_t pcm16 = (int16_t)(sample * 20000); // Loud volume
+    buffer[i] = ((int32_t)pcm16) << 16; // MSB alignment
+  }
+  
+  // Write to I2S
+  size_t bytes_written;
+  i2s_write(I2S_NUM_0, buffer, samples * sizeof(int32_t), &bytes_written, portMAX_DELAY);
+  
+  Serial.printf("🔊 Played %d bytes | Expecting sound...\n", bytes_written);
+  delay(200); // Repeat every 200ms for continuous tone
+}

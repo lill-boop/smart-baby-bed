@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme - 母婴温馨风格 -->
+    <style name="Theme.BabyBedApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 主色调 -->
+        <item name="colorPrimary">@color/baby_primary</item>
+        <item name="colorPrimaryDark">@color/baby_primary_dark</item>
+        <item name="colorAccent">@color/baby_accent</item>
+        <!-- 背景色 -->
+        <item name="android:windowBackground">@color/baby_bg_primary</item>
+        <item name="android:colorBackground">@color/baby_bg_primary</item>
+    </style>
+</resources>

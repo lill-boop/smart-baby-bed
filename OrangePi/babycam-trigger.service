@@ -1,0 +1,15 @@
+[Unit]
+Description=BabyCam MQTT Trigger & Recorder Service
+After=network.target docker.service babycam-unified.service
+
+[Service]
+Type=simple
+User=orangepi
+WorkingDirectory=/home/orangepi/babycam_ai
+ExecStart=/usr/bin/python3 /home/orangepi/babycam_ai/mqtt_trigger.py
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

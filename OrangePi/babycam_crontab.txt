@@ -1,0 +1,8 @@
+# BabyCam Cron Jobs
+# 安装方法: crontab -e 然后添加下面的行
+
+# 每小时清理一次过期文件
+0 * * * * /var/log.hdd/babycam/cleanup.sh >> /var/log/babycam-cleanup.log 2>&1
+
+# 每天凌晨3点重启推流服务（可选，提高稳定性）
+# 0 3 * * * systemctl restart babycam-push babycam-ring

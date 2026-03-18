@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <!-- 事件类型图标 -->
+        <FrameLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <View
+                android:id="@+id/viewEventBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_event_icon" />
+
+            <TextView
+                android:id="@+id/tvEventIcon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="😢"
+                android:textSize="24sp"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <!-- 事件信息 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/tvEventType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="哭声检测"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvEventTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14:30:25"
+                    android:textSize="13sp"
+                    android:textColor="#888888" />
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@drawable/bg_dot_gray" />
+
+                <TextView
+                    android:id="@+id/tvEventDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30秒"
+                    android:textSize="13sp"
+                    android:textColor="#888888" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 播放按钮 -->
+        <ImageView
+            android:id="@+id/btnPlay"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_play_circle"
+            android:scaleType="centerInside"
+            android:contentDescription="播放" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

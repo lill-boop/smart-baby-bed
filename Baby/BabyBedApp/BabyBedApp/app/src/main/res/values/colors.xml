@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 原有颜色 -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ========== 母婴温馨配色 ========== -->
+    <!-- 背景色系 -->
+    <color name="baby_bg_primary">#FFF8F0</color>      <!-- 米白色 主背景 -->
+    <color name="baby_bg_secondary">#FFFAF5</color>    <!-- 奶油色 卡片背景 -->
+    <color name="baby_bg_card">#FFFFFF</color>         <!-- 纯白 卡片内部 -->
+    <color name="baby_bg_gradient_start">#FFF5E6</color> <!-- 渐变起始 -->
+    <color name="baby_bg_gradient_end">#E8F4FD</color>   <!-- 渐变结束 -->
+
+    <!-- 主色调 -->
+    <color name="baby_primary">#A8D8EA</color>         <!-- 浅蓝色 主按钮 -->
+    <color name="baby_primary_dark">#7EC8E3</color>    <!-- 深浅蓝 按压态 -->
+    <color name="baby_primary_light">#D4EDFC</color>   <!-- 超浅蓝 背景 -->
+    <color name="baby_accent">#FFCDD2</color>          <!-- 暖粉色 强调 -->
+    <color name="baby_accent_light">#FFE4E8</color>    <!-- 浅粉色 -->
+
+    <!-- 状态颜色 -->
+    <color name="baby_status_normal">#E8F5E9</color>   <!-- 薄荷绿背景 正常 -->
+    <color name="baby_status_warning">#FFF3E0</color>  <!-- 杏色背景 注意 -->
+    <color name="baby_status_danger">#FFEBEE</color>   <!-- 珊瑚粉背景 异常 -->
+
+    <color name="baby_status_normal_text">#4CAF50</color>   <!-- 正常文字 -->
+    <color name="baby_status_warning_text">#FF9800</color>  <!-- 注意文字 -->
+    <color name="baby_status_danger_text">#F44336</color>   <!-- 异常文字 -->
+
+    <color name="baby_status_normal_icon">#81C784</color>
+    <color name="baby_status_warning_icon">#FFB74D</color>
+    <color name="baby_status_danger_icon">#E57373</color>
+
+    <!-- 文字颜色 -->
+    <color name="baby_text_primary">#5D4E37</color>    <!-- 深褐色 主文字 -->
+    <color name="baby_text_secondary">#8B7355</color>  <!-- 浅褐色 次文字 -->
+    <color name="baby_text_hint">#B8A898</color>       <!-- 淡褐色 提示 -->
+    <color name="baby_text_white">#FFFFFF</color>      <!-- 白色文字 -->
+
+    <!-- 控件颜色 -->
+    <color name="baby_switch_track">#E0E0E0</color>    <!-- 开关轨道 -->
+    <color name="baby_switch_track_on">#B8E0C8</color> <!-- 开关轨道开启 -->
+    <color name="baby_switch_thumb">#FFFFFF</color>    <!-- 开关滑块 -->
+    <color name="baby_divider">#F0EBE3</color>         <!-- 分隔线 -->
+    <color name="baby_ripple">#20A8D8EA</color>        <!-- 水波纹 -->
+
+    <!-- 阴影颜色 -->
+    <color name="baby_shadow">#10000000</color>        <!-- 轻阴影 -->
+    <color name="baby_shadow_strong">#20000000</color> <!-- 强阴影 -->
+
+    <!-- 功能色 -->
+    <color name="baby_temp">#FF7043</color>            <!-- 温度橙色 -->
+    <color name="baby_wet">#42A5F5</color>             <!-- 湿度蓝色 -->
+    <color name="baby_cry">#AB47BC</color>             <!-- 哭声紫色 -->
+    <color name="baby_music">#66BB6A</color>           <!-- 音乐绿色 -->
+    <color name="baby_sleep">#7E57C2</color>           <!-- 睡眠紫色 -->
+    
+    <!-- 卡片渐变背景 -->
+    <color name="card_temp_bg">#FFF3E0</color>
+    <color name="card_wet_bg">#E3F2FD</color>
+    <color name="card_cry_bg">#F3E5F5</color>
+    <color name="card_music_bg">#E8F5E9</color>
+</resources>

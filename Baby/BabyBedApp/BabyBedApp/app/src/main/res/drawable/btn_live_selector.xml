@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下状态 -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#C62828"
+                android:endColor="#D32F2F" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- 正常状态 -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#E53935"
+                android:endColor="#EF5350" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</selector>

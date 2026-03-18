@@ -1,0 +1,12 @@
+project_c8\port.o: ../FreeRTOS/portable/RVDS/ARM_CM3/port.c
+project_c8\port.o: ../FreeRTOS/include/FreeRTOS.h
+project_c8\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+project_c8\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+project_c8\port.o: ../Core/Inc/FreeRTOSConfig.h
+project_c8\port.o: ../FreeRTOS/include/projdefs.h
+project_c8\port.o: ../FreeRTOS/include/portable.h
+project_c8\port.o: ../FreeRTOS/include/deprecated_definitions.h
+project_c8\port.o: ../FreeRTOS/portable/RVDS/ARM_CM3/portmacro.h
+project_c8\port.o: ../FreeRTOS/include/mpu_wrappers.h
+project_c8\port.o: ../FreeRTOS/include/task.h
+project_c8\port.o: ../FreeRTOS/include/list.h

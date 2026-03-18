@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ========== 基础主题 ========== -->
+    <style name="Theme.BabyBed" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/baby_primary</item>
+        <item name="colorPrimaryDark">@color/baby_primary_dark</item>
+        <item name="colorAccent">@color/baby_accent</item>
+        <item name="android:windowBackground">@color/baby_bg_primary</item>
+        <item name="android:statusBarColor">@color/baby_primary</item>
+    </style>
+
+    <!-- ========== 卡片样式 ========== -->
+    <style name="BabyCard">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/baby_bg_card</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="BabyCard.Status">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">3dp</item>
+    </style>
+
+    <style name="BabyCard.Control">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">6dp</item>
+    </style>
+
+    <!-- ========== 按钮样式 ========== -->
+    <style name="BabyButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/baby_primary</item>
+    </style>
+
+    <style name="BabyButton.Secondary">
+        <item name="backgroundTint">@color/baby_accent</item>
+    </style>
+
+    <style name="BabyButton.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">24dp</item>
+        <item name="strokeColor">@color/baby_primary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/baby_primary</item>
+    </style>
+
+    <!-- ========== 输入框样式 ========== -->
+    <style name="BabyEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeColor">@color/baby_primary</item>
+        <item name="hintTextColor">@color/baby_text_hint</item>
+    </style>
+
+    <!-- ========== 文字样式 ========== -->
+    <style name="BabyText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/baby_text_primary</item>
+    </style>
+
+    <style name="BabyText.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/baby_text_primary</item>
+    </style>
+
+    <style name="BabyText.Subtitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/baby_text_primary</item>
+    </style>
+
+    <style name="BabyText.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/baby_text_secondary</item>
+    </style>
+
+    <style name="BabyText.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/baby_text_hint</item>
+    </style>
+
+    <style name="BabyText.Value">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/baby_text_primary</item>
+    </style>
+
+    <!-- ========== 开关样式 ========== -->
+    <style name="BabySwitch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="trackTint">@color/baby_switch_track</item>
+        <item name="thumbTint">@color/baby_primary</item>
+    </style>
+
+    <!-- ========== 状态指示器样式 ========== -->
+    <style name="StatusIndicator">
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="StatusIndicator.Normal">
+        <item name="android:background">@color/baby_status_normal</item>
+        <item name="android:textColor">@color/baby_status_normal_text</item>
+    </style>
+
+    <style name="StatusIndicator.Warning">
+        <item name="android:background">@color/baby_status_warning</item>
+        <item name="android:textColor">@color/baby_status_warning_text</item>
+    </style>
+
+    <style name="StatusIndicator.Danger">
+        <item name="android:background">@color/baby_status_danger</item>
+        <item name="android:textColor">@color/baby_status_danger_text</item>
+    </style>
+</resources>

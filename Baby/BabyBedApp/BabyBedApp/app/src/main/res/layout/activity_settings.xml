@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/baby_bg_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_lg">
+
+        <!-- 顶部栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_lg">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="返回"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="设置"
+                android:textSize="@dimen/text_xl"
+                android:textStyle="bold"
+                android:textColor="@color/baby_text_primary"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+        <!-- 用户信息卡片 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/baby_bg_card"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_lg"
+                android:gravity="center_vertical">
+
+                <!-- 头像 -->
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="@dimen/avatar_lg"
+                    android:layout_height="@dimen/avatar_lg"
+                    android:src="@drawable/ic_avatar_default"
+                    android:background="@drawable/bg_circle"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="头像"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/spacing_md">
+
+                    <TextView
+                        android:id="@+id/tvDisplayName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="宝宝妈妈"
+                        android:textSize="@dimen/text_xl"
+                        android:textStyle="bold"
+                        android:textColor="@color/baby_text_primary"/>
+
+                    <TextView
+                        android:id="@+id/tvRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="父母"
+                        android:textSize="@dimen/text_md"
+                        android:textColor="@color/baby_text_secondary"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:contentDescription="编辑"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 账号管理 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号管理"
+            android:textSize="@dimen/text_md"
+            android:textColor="@color/baby_text_secondary"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_sm"
+            android:layout_marginStart="@dimen/spacing_sm"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/baby_bg_card"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 修改密码 -->
+                <LinearLayout
+                    android:id="@+id/layoutChangePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_sm"
+                        android:layout_height="@dimen/icon_sm"
+                        android:src="@drawable/ic_lock"
+                        android:tint="@color/baby_primary"
+                        android:contentDescription="密码"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="修改密码"
+                        android:textSize="@dimen/text_lg"
+                        android:textColor="@color/baby_text_primary"
+                        android:layout_marginStart="@dimen/spacing_md"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/baby_text_hint"
+                        android:contentDescription="进入"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/baby_divider"
+                    android:layout_marginStart="56dp"/>
+
+                <!-- 绑定手机 -->
+                <LinearLayout
+                    android:id="@+id/layoutBindPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_sm"
+                        android:layout_height="@dimen/icon_sm"
+                        android:src="@drawable/ic_phone"
+                        android:tint="@color/baby_primary"
+                        android:contentDescription="手机"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="绑定手机"
+                        android:textSize="@dimen/text_lg"
+                        android:textColor="@color/baby_text_primary"
+                        android:layout_marginStart="@dimen/spacing_md"/>
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未绑定"
+                        android:textSize="@dimen/text_md"
+                        android:textColor="@color/baby_text_hint"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/baby_text_hint"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:contentDescription="进入"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 设备管理 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备管理"
+            android:textSize="@dimen/text_md"
+            android:textColor="@color/baby_text_secondary"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_sm"
+            android:layout_marginStart="@dimen/spacing_sm"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/baby_bg_card"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 我的设备 -->
+                <LinearLayout
+                    android:id="@+id/layoutMyDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_sm"
+                        android:layout_height="@dimen/icon_sm"
+                        android:src="@drawable/ic_device"
+                        android:tint="@color/baby_primary"
+                        android:contentDescription="设备"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="我的婴儿床"
+                        android:textSize="@dimen/text_lg"
+                        android:textColor="@color/baby_text_primary"
+                        android:layout_marginStart="@dimen/spacing_md"/>
+
+                    <TextView
+                        android:id="@+id/tvDeviceCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 台设备"
+                        android:textSize="@dimen/text_md"
+                        android:textColor="@color/baby_text_hint"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/baby_text_hint"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:contentDescription="进入"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/baby_divider"
+                    android:layout_marginStart="56dp"/>
+
+                <!-- 家庭成员 -->
+                <LinearLayout
+                    android:id="@+id/layoutFamilyMembers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_sm"
+                        android:layout_height="@dimen/icon_sm"
+                        android:src="@drawable/ic_family"
+                        android:tint="@color/baby_primary"
+                        android:contentDescription="家庭"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="家庭成员"
+                        android:textSize="@dimen/text_lg"
+                        android:textColor="@color/baby_text_primary"
+                        android:layout_marginStart="@dimen/spacing_md"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/baby_text_hint"
+                        android:contentDescription="进入"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 占位 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- 退出登录 -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="退出登录"
+            android:textSize="@dimen/text_lg"
+            android:textColor="@color/baby_status_danger_text"
+            app:backgroundTint="@color/baby_status_danger"
+            app:cornerRadius="@dimen/radius_xl"
+            android:layout_marginBottom="@dimen/spacing_lg"/>
+
+    </LinearLayout>
+</ScrollView>

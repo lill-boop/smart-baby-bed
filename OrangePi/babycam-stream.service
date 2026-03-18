@@ -1,0 +1,14 @@
+[Unit]
+Description=BabyCam MJPEG Streamer
+After=network.target
+
+[Service]
+User=orangepi
+Group=orangepi
+WorkingDirectory=/var/log.hdd/babycam/ai
+ExecStart=/usr/bin/python3 /var/log.hdd/babycam/ai/babycam_mjpeg.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

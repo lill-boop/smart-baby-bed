@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_main"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- ========== 顶部欢迎区 ========== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <!-- 头像 -->
+            <FrameLayout
+                android:layout_width="56dp"
+                android:layout_height="56dp">
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baby_logo"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_card_round"
+                    android:padding="8dp" />
+                
+                <!-- 在线状态点 -->
+                <View
+                    android:id="@+id/viewOnlineStatus"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_status_dot_green" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👋 欢迎回来"
+                    android:textSize="14sp"
+                    android:textColor="#888888" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="宝贝守护中心"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- 连接状态 -->
+            <TextView
+                android:id="@+id/tvConnectionStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 已连接"
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:background="@drawable/bg_status_pill"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp" />
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_settings"
+                android:contentDescription="设置"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <!-- ========== 核心温度仪表盘 ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌡️ 实时体温监测"
+                    android:textSize="16sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- 大圆形温度显示 -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_temp_circle" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvTempValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="36.8"
+                            android:textSize="48sp"
+                            android:textStyle="bold"
+                            android:textColor="#FF7043" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="℃"
+                            android:textSize="20sp"
+                            android:textColor="#FF7043" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvTempStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✨ 体温正常"
+                    android:textSize="16sp"
+                    android:textColor="#4CAF50"
+                    android:background="@drawable/bg_status_pill"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp" />
+
+                <TextView
+                    android:id="@+id/tvLastUpdateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最后更新: --"
+                    android:textSize="12sp"
+                    android:textColor="#AAAAAA"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== 状态监测卡片组 ========== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <!-- 尿湿监测 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardWet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#E3F2FD">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💧"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="尿湿监测"
+                        android:textSize="14sp"
+                        android:textColor="#1976D2"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvWetStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="干爽 ✓"
+                        android:textSize="16sp"
+                        android:textColor="#4CAF50"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 哭声监测 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#F3E5F5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="👶"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="哭声监测"
+                        android:textSize="14sp"
+                        android:textColor="#7B1FA2"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvCryStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="安静 😊"
+                        android:textSize="16sp"
+                        android:textColor="#4CAF50"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- ========== 音乐安抚卡片 ========== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#E8F5E9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎵"
+                    android:textSize="36sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="安抚音乐"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32" />
+
+                    <TextView
+                        android:id="@+id/tvMusicStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="点击开关播放音乐"
+                        android:textSize="13sp"
+                        android:textColor="#66BB6A" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switchMusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== 快捷功能按钮 ========== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <!-- 实时预览 -->
+            <Button
+                android:id="@+id/btnLiveView"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="🔴 实时预览"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_live"
+                android:textAllCaps="false" />
+
+            <!-- 事件时间轴 -->
+            <Button
+                android:id="@+id/btnEventsTimeline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                android:text="📹 时间轴"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_timeline"
+                android:textAllCaps="false" />
+
+            <!-- AI 监控 (新) -->
+            <Button
+                android:id="@+id/btnAiStream"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="🤖 AI 监控"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#673AB7"
+                android:background="@drawable/bg_button_timeline"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- ========== 语音对讲卡片 (New) ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardIntercom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFF3E0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎙️"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="远程对讲"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#EF6C00"
+                        android:layout_marginStart="12dp" />
+                    
+                    <TextView
+                        android:id="@+id/tvIntercomStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="准备就绪"
+                        android:textSize="12sp"
+                        android:textColor="#FF9800" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnTalk"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="按住 说话"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FF9800"
+                    app:cornerRadius="32dp"
+                    android:stateListAnimator="@null"
+                    android:textAllCaps="false" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="松开结束发送 · 始终接收声音"
+                    android:textSize="11sp"
+                    android:textColor="#BCAAA4"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== 设备控制面板 ========== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️ 设备控制"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- 模式切换 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_control_item">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔄"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="运行模式"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+
+                    <Switch
+                        android:id="@+id/switchMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手动" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginVertical="8dp" />
+
+                <!-- 风扇控制 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌀"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="风扇"
+                        android:textSize="16sp"
+                        android:textColor="#555555"
+                        android:layout_marginStart="12dp" />
+
+                    <Switch
+                        android:id="@+id/switchFan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- 加热控制 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="加热"
+                        android:textSize="16sp"
+                        android:textColor="#555555"
+                        android:layout_marginStart="12dp" />
+
+                    <Switch
+                        android:id="@+id/switchHot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- 摇篮控制 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛏️"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="摇篮"
+                        android:textSize="16sp"
+                        android:textColor="#555555"
+                        android:layout_marginStart="12dp" />
+
+                    <Switch
+                        android:id="@+id/switchCrib"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== 最近1小时统计 ========== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📊 最近1小时统计"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- 平均体温 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_stat_item">
+
+                        <TextView
+                            android:id="@+id/tvStatsAvgTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="36.5℃"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#FF7043" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="平均体温"
+                            android:textSize="12sp"
+                            android:textColor="#999999" />
+                    </LinearLayout>
+
+                    <!-- 尿床次数 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/bg_stat_item">
+
+                        <TextView
+                            android:id="@+id/tvStatsWetCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#2196F3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="尿床次数"
+                            android:textSize="12sp"
+                            android:textColor="#999999" />
+                    </LinearLayout>
+
+                    <!-- 哭泣次数 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_stat_item">
+
+                        <TextView
+                            android:id="@+id/tvStatsCryCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#9C27B0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="哭泣次数"
+                            android:textSize="12sp"
+                            android:textColor="#999999" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== AI 分析卡片 ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAnalysis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#E8F5E9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤖"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="AI 智能分析"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_marginStart="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvAnalysisTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未分析"
+                        android:textSize="12sp"
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAnalysisRisk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="风险等级: 低 ✓"
+                    android:textSize="16sp"
+                    android:textColor="#4CAF50"
+                    android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvAnalysisSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="点击按钮开始智能分析"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tvAnalysisSuggestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="#888888"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnAnalyze"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:text="开始分析"
+                    android:textSize="15sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_button_gradient"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== 底部操作按钮 ========== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnReconnect"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="🔄 重连"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:backgroundTint="#F5F5F5"
+                app:cornerRadius="12dp"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnHistory"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="📈 历史"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:backgroundTint="#F5F5F5"
+                app:cornerRadius="12dp"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- ========== 调试区域 (折叠) ========== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FAFAFA">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔧 调试信息"
+                    android:textSize="12sp"
+                    android:textColor="#999999"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvCmdStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="命令状态: 空闲"
+                    android:textSize="11sp"
+                    android:textColor="#666666" />
+
+                <TextView
+                    android:id="@+id/tvLastTx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="发送: 无"
+                    android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvLastRx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="接收: 无"
+                    android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/btnTestCmd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="测试"
+                    android:textSize="11sp"
+                    android:backgroundTint="#E0E0E0"
+                    android:layout_marginTop="8dp"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 日志区域 -->
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#F5F5F5"
+            android:padding="12dp"
+            android:text="日志..."
+            android:textSize="10sp"
+            android:textColor="#888888"
+            android:fontFamily="monospace"
+            android:gravity="top"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+</ScrollView>

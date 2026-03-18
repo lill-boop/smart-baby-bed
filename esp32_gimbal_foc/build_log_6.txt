@@ -1,0 +1,4 @@
+Processing esp32-s3 (platform: espressif32@6.5.0; board: esp32-s3-devkitc-1; framework: arduino)
+--------------------------------------------------------------------------------
+Build interrupted.
+AbortedByUser: Aborted by user

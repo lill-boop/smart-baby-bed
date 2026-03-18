@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/baby_bg_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/spacing_lg">
+
+        <!-- 顶部返回栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_lg">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="返回"
+                android:scaleType="centerInside"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="创建账号"
+                android:textSize="@dimen/text_xl"
+                android:textStyle="bold"
+                android:textColor="@color/baby_text_primary"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+        <!-- 欢迎文字 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加入宝贝守护大家庭 🍼"
+            android:textSize="@dimen/text_lg"
+            android:textColor="@color/baby_text_secondary"
+            android:layout_marginBottom="@dimen/spacing_lg"/>
+
+        <!-- 注册卡片 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/baby_bg_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_lg">
+
+                <!-- 昵称 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_md"
+                    app:boxCornerRadiusTopStart="@dimen/radius_md"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_md"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_md"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_md"
+                    app:boxStrokeColor="@color/baby_primary"
+                    android:hint="昵称（如：宝宝妈妈）">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDisplayName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/baby_text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 用户名 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_md"
+                    app:boxCornerRadiusTopStart="@dimen/radius_md"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_md"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_md"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_md"
+                    app:boxStrokeColor="@color/baby_primary"
+                    android:hint="用户名">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/baby_text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 手机号（可选） -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_md"
+                    app:boxCornerRadiusTopStart="@dimen/radius_md"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_md"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_md"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_md"
+                    app:boxStrokeColor="@color/baby_primary"
+                    android:hint="手机号（选填）">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:textColor="@color/baby_text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 密码 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_md"
+                    app:boxCornerRadiusTopStart="@dimen/radius_md"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_md"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_md"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_md"
+                    app:boxStrokeColor="@color/baby_primary"
+                    app:passwordToggleEnabled="true"
+                    android:hint="设置密码">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/baby_text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 确认密码 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_lg"
+                    app:boxCornerRadiusTopStart="@dimen/radius_md"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_md"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_md"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_md"
+                    app:boxStrokeColor="@color/baby_primary"
+                    app:passwordToggleEnabled="true"
+                    android:hint="确认密码">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/baby_text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 角色选择 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的身份"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/baby_text_secondary"
+                    android:layout_marginBottom="@dimen/spacing_sm"/>
+
+                <RadioGroup
+                    android:id="@+id/rgRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_lg">
+
+                    <RadioButton
+                        android:id="@+id/rbParent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="父母"
+                        android:checked="true"
+                        android:textColor="@color/baby_text_primary"/>
+
+                    <RadioButton
+                        android:id="@+id/rbGuardian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="监护人"
+                        android:layout_marginStart="@dimen/spacing_lg"
+                        android:textColor="@color/baby_text_primary"/>
+                </RadioGroup>
+
+                <!-- 注册按钮 -->
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:text="注 册"
+                    android:textSize="@dimen/text_lg"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/baby_primary"
+                    app:cornerRadius="@dimen/radius_xl"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 返回登录 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/spacing_lg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已有账号？"
+                android:textSize="@dimen/text_md"
+                android:textColor="@color/baby_text_secondary"/>
+
+            <TextView
+                android:id="@+id/tvGoLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回登录"
+                android:textSize="@dimen/text_md"
+                android:textStyle="bold"
+                android:textColor="@color/baby_primary_dark"
+                android:paddingStart="@dimen/spacing_xs"
+                android:paddingEnd="@dimen/spacing_sm"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
